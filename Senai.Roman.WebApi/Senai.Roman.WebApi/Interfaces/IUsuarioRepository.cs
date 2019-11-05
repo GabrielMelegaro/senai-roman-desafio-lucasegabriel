@@ -10,6 +10,5 @@ namespace Senai.Roman.WebApi.Interfaces
     public interface IUsuarioRepository
     {
         Usuario BuscarPorEmailESenha(LoginViewModel login);
-        void Cadastrar(Usuario usuario);
     }
 }

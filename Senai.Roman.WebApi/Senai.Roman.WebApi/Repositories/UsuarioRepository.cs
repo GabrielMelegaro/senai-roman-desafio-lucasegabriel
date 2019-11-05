@@ -20,14 +20,5 @@ namespace Senai.Roman.WebApi.Repositories
                 return usuario;
             }
         }
-
-        public void Cadastrar(Usuario usuario)
-        {
-            using (RomanContext ctx = new RomanContext())
-            {
-                ctx.Usuario.Add(usuario);
-                ctx.SaveChanges();
-            }
-        }
     }
 }

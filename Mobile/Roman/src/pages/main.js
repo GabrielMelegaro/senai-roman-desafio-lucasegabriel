@@ -15,10 +15,10 @@ class Main extends Component {
     }
 
     _carregarTemas = async () => {
-        await fetch('localhost:5000/api/temas')
-        .then(resposta => resposta.json())
-        .then(data => this.setState({temas: data}))
-        .catch(erro => console.warn(erro));
+        await fetch('http://192.168.6.220:5000/api/temas')
+            .then(resposta => resposta.json())
+            .then(data => this.setState({temas: data}))
+            .catch(erro => console.warn(erro));
     };
 
     render() {

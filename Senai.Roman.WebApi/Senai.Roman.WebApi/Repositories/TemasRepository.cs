@@ -16,14 +16,5 @@ namespace Senai.Roman.WebApi.Repositories
                 return ctx.Temas.ToList();
             }
         }
-
-        public void Cadastrar(Temas Tema)
-        {
-            using (RomanContext ctx = new RomanContext())
-            {
-                ctx.Temas.Add(Tema);
-                ctx.SaveChanges();
-            }
-        }
     }
 }

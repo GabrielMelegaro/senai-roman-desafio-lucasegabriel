@@ -27,19 +27,5 @@ namespace Senai.Roman.WebApi.Controllers
         {
             return Ok(TemasRepository.Listar());
         }
-        [Authorize(Roles = "admin")]
-        [HttpPost]
-        public IActionResult Cadastrar(Temas Tema)
-        {
-            try
-            {
-                TemasRepository.Cadastrar(Tema);
-                return Ok();
-            }
-            catch(System.Exception ex)
-            {
-                return BadRequest(new { mensagem = ex.Message });
-            }
-        }
     }
 }

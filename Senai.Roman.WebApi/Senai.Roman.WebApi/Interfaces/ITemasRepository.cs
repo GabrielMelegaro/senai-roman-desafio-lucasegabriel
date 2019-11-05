@@ -9,6 +9,5 @@ namespace Senai.Roman.WebApi.Interfaces
     public interface ITemasRepository
     {
         List<Temas> Listar();
-        void Cadastrar(Temas tema);
     }
 }

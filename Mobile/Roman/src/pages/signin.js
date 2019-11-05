@@ -16,13 +16,13 @@ class SignIn extends Component {
     constructor(){
         super();
         this.state = {
-            email: 'g@admin.com',
-            senha: '123456',
+            email: 'e@gmail.com',
+            senha: '123123',
         };
     }
 
     _realizarLogin = async () => {
-        await fetch('localhost:5000/api/usuario',{
+        await fetch('http://192.168.6.220:5000/api/usuario',{
             method: 'POST',
             headers: {
                 Accept : 'application/json',
@@ -40,12 +40,14 @@ class SignIn extends Component {
 
     _irParaHome = async (tokenAReceber) => {
         if(tokenAReceber != null){
-            try{
+            try {
                 await AsyncStorage.setItem('@roman:token', tokenAReceber);
                 this.props.navigation.navigate('MainNavigator');
-            } catch (error) {}
+            } catch (error) {
+                console.warn(error)
+            }
         }
-    };
+    }
 
     render(){
         return(
@@ -53,11 +55,13 @@ class SignIn extends Component {
                 <TextInput
                 placeholder="email"
                 onChangeText={email => this.setState({email})}
-                value={this.state.email}/>
+                value={this.state.email}
+                />
                 <TextInput
                 placeholder="senha"
                 onChangeText={senha => this.setState({senha})}
-                value={this.state.senha}/>
+                value={this.state.senha}
+                />
                 <TouchableOpacity onPress={this._realizarLogin}>
                     <Text>Login</Text>
                 </TouchableOpacity>
